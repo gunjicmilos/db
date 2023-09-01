@@ -1,3 +1,18 @@
+
+db.OBJEKTI.update({"sef": "Ivan Buha"}, {$addToSet:{"radnoVreme":
+{$each:
+[
+ { "dan" : "Ponedeljak", "start" : "6:00", "end" : "20:00"},
+ { "dan" : "Utorak", "start" : "7:00", "end" : "21:00"},
+ { "dan" : "Sreda", "start" : "10:00", "end" : "22:00"},
+ { "dan" : "Cetvrtak", "start" : "7:00", "end" : "23:00"},
+ { "dan" : "Petak", "start" : "10:00", "end" : "20:00"},
+ { "dan" : "Subota", "start" : "9:00", "end" : "21:00"},
+ { "dan" : "Nedelja", "start" : "7:00", "end" : "22:00"}
+]
+}
+}})
+
 # db
 
 
