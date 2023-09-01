@@ -1,5 +1,80 @@
 # db
 
+
+Zadatak1 - priprema K1
+
+a) Na osnovu prikazanih podataka napraviti kolekciju agencija tako da svaki dokumenat odgovara jednom redu u tabeli.
+
+db.agencija.insertMany([
+{ id: NumberInt(1),
+ ime: "Sara",
+ prezime:"Milojković",
+ br_pasosa:"012356778",
+ "e-mail":"sara@gmail.com",
+ rezervacije:
+ [  {naziv_aranzmana:"Dan državnosti",
+      destinacija:{grad:"Beč",država:"Austrija"},
+      period:"Februar 2022",
+      br_zvezdica:NumberInt(3),
+      br_nocenja:NumberInt(2),
+      cena:NumberInt(85)
+      },
+     {naziv_aranzmana:"Uskrs",
+     destinacija:{grad:"Prag",država:"Češka"},
+     period:"April 2022",
+     br_zvezdica:NumberInt(3),
+     br_nocenja:NumberInt(3),
+     cena:NumberInt(150)}
+ ]},
+ { id: NumberInt(2),
+ ime: "Lazar",
+ prezime:"Lazarević",
+ br_pasosa:"112233445",
+ "e-mail":"laki@gmail.com",
+ rezervacije:
+ [  {naziv_aranzmana:"Leto 2022",
+      destinacija:{grad:"Alanja",država:"Turska"},
+      period:"Avgust 2022",
+      br_zvezdica:NumberInt(4),
+      br_nocenja:NumberInt(10),
+      cena:NumberInt(500)
+      },
+     {naziv_aranzmana:"Uskrs",
+     destinacija:{grad:"Prag",država:"Češka"},
+     period:"April 2022",
+     br_zvezdica:NumberInt(3),
+     br_nocenja:NumberInt(3),
+     cena:NumberInt(150)}
+ ]},
+ { id: NumberInt(3),
+ ime: "Ana",
+ prezime:"Ilić",
+ br_pasosa:"33445588",
+ "e-mail":"mai@gmail.com",
+ rezervacije:
+ [    {naziv_aranzmana:"Dan državnosti",
+      destinacija:{grad:"Beč",država:"Austrija"},
+      period:"Februar 2022",
+      br_zvezdica:NumberInt(3),
+      br_nocenja:NumberInt(2),
+      cena:NumberInt(85)
+      },
+     {naziv_aranzmana:"Leto 2022",
+     destinacija:{grad:"Krf",država:"Grčka"},
+     period:"Jul 2022",
+     br_zvezdica:NumberInt(4),
+     br_nocenja:NumberInt(15),
+     cena:NumberInt(1500)}
+ ]}
+])
+
+b) Prikazati podatke putnika za Beč.
+db.agencija.find({"rezervacije.destinacija.grad":"Beč"},{ime:1,prezime:1})
+
+
+e) Prikazati nazive aranžmana sa cenom većom od 100.
+db.agencija.distinct("rezervacije.naziv_aranzmana",{"rezervacije.cena":{$gt:100}})
+
 Drugi kolokvijum – pitanja za P6, P7, P8, P9, P10, P11, P12
 1. Na čemu je zasnovna model kolonski orjentisanih baza podataka?
 Model podataka je zasnovan na redovima koji imaju mnogo kolona povezanih sa ključem reda. Svaki red ima svoj jedinstveni ključ koji se zove ključ reda. Red se sastoji od određenog broja kolona koje su ograničene na taj red. Kolone se ne proširuju na ostale redove, kao što je slučaj sa kolonama u relacionim bazama podataka.
